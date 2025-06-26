@@ -98,14 +98,6 @@ You can now open the app and start uploading files to S3. 🎉
 
 ---
 
-## 📸 Optional Screenshot
-```markdown
-![Demo](./demo.gif)
-```
-_Uncomment the line above and add a GIF or screenshot if you have one._
-
----
-
 ## 📜 License
 Released under the [MIT License](LICENSE).
 
