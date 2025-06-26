@@ -1,83 +1,71 @@
-🚀 Secure S3 File Uploader Web Application
-This is a full-stack web application that securely uploads files from a web browser directly to a private Amazon S3 bucket using pre-signed URLs. The backend generates temporary, secure links to ensure that AWS credentials are never exposed on the client-side.
+# 🚀 Secure S3 File Uploader Web Application
 
-This project was developed as part of a summer internship at NIT Warangal.
+This is a full-stack web application that securely uploads files from a browser directly to a private Amazon S3 bucket using pre-signed URLs. The backend generates temporary, secure links, ensuring AWS credentials are never exposed on the client-side.
 
-<!-- Optional: Add a screenshot or GIF --> <!-- ![S3 Uploader Demo](./demo.gif) -->
-✨ Key Features
-🔐 Secure by Design: Uses AWS S3 pre-signed URLs to keep credentials safe.
+> 🛠️ Developed as part of a Summer Internship at **NIT Warangal**.
 
-⚡ Direct-to-S3 Uploads: Uploads go straight from the browser to S3, reducing backend load.
+---
 
-💻 Modern Frontend: Clean and responsive UI built using React.js.
+## ✨ Features
 
-📂 Drag-and-Drop Uploads: Seamless UX with react-dropzone.
+- 🔐 **Secure Uploads:** Files are uploaded using pre-signed S3 URLs to keep AWS credentials private.
+- ⚡ **Direct-to-S3 Uploads:** Bypass the backend for file data, improving performance and scalability.
+- 💻 **React Frontend:** Clean and responsive UI built with React.js.
+- 📂 **Drag & Drop Support:** Enhanced UX using `react-dropzone`.
+- 📊 **Progress Indicator:** Real-time file upload status.
+- 🔔 **User Notifications:** Success & error feedback with `react-toastify`.
 
-📊 Real-Time Progress: Displays upload progress dynamically.
+---
 
-✅ Toast Notifications: User feedback using react-toastify.
+## ⚙️ How It Works (Pre-signed URL Flow)
 
-⚙️ How It Works: The Pre-signed URL Flow
-The application uses a secure flow for uploading files:
+1. User selects a file in the frontend.
+2. Frontend sends metadata (name, type) to backend (Node.js).
+3. Backend uses AWS SDK to generate a pre-signed S3 upload URL.
+4. Backend returns this URL to the frontend.
+5. Frontend uploads the file **directly to S3** using the pre-signed URL.
 
-User selects a file in the frontend (React).
+✅ Keeps credentials secure  
+✅ Makes uploads efficient
 
-The frontend requests a pre-signed URL from the backend (Node.js/Express).
+---
 
-The backend uses the AWS SDK to generate a pre-signed URL with limited-time upload access.
+## 🛠 Tech Stack
 
-This URL is returned to the frontend.
+### Frontend
+- React.js
+- Axios
+- Styled Components
+- React Dropzone
+- React Toastify
+- Font Awesome
 
-The frontend uploads the file directly to S3 using the pre-signed URL.
+### Backend
+- Node.js
+- Express.js
+- AWS SDK v3 (`@aws-sdk/client-s3`, `@aws-sdk/s3-request-presigner`)
+- Dotenv
 
-✅ This keeps AWS credentials hidden and improves performance.
+### DevOps & Cloud
+- AWS S3
+- Git & GitHub
 
-🛠️ Tech Stack
-Frontend
-React.js
+---
 
-Axios
+## 🚀 Getting Started
 
-Styled Components
+### ✅ Prerequisites
 
-React Dropzone
+- Node.js & npm (or Yarn)
+- AWS Account with:
+  - An S3 Bucket
+  - An IAM User with programmatic access & S3 permissions
 
-React Toastify
+---
 
-Font Awesome
+### 🔧 1. Clone the Repository
 
-Backend
-Node.js
-
-Express.js
-
-AWS SDK v3
-
-@aws-sdk/client-s3
-
-@aws-sdk/s3-request-presigner
-
-dotenv
-
-Cloud & DevOps
-Amazon S3
-
-Git & GitHub
-
-🚀 Getting Started
-✅ Prerequisites
-Node.js and npm (or Yarn)
-
-AWS account with:
-
-An S3 bucket
-
-An IAM User with programmatic access and S3 permissions
-
-🔧 1. Clone the Repository
-bash
-Copy
-Edit
+```bash
 git clone https://github.com/sabinikarisaman/S3-File-Uploader-Web-Application.git
 cd S3-File-Uploader-Web-Application
 ⚙️ 2. Setup Backend
@@ -86,13 +74,8 @@ Copy
 Edit
 cd backend
 npm install
-Create your environment variables:
-
-bash
-Copy
-Edit
 cp .env.example .env
-Now edit .env and provide your AWS credentials:
+Edit the .env file with your AWS credentials:
 
 env
 Copy
@@ -107,26 +90,50 @@ Copy
 Edit
 cd ../frontend
 npm install
-🏃‍♂️ 4. Run the Application
-Open two terminals:
+🏁 4. Run the Application
+Use two separate terminals:
 
-Terminal 1: Start Backend
+Terminal 1 - Backend
 bash
 Copy
 Edit
 cd backend
 npm start
-Runs at: http://localhost:5000
+Runs on: http://localhost:5000
 
-Terminal 2: Start Frontend
+Terminal 2 - Frontend
 bash
 Copy
 Edit
 cd frontend
 npm start
-Runs at: http://localhost:3000
+Runs on: http://localhost:3000
 
-You can now open the app and upload files to your S3 bucket 🎉
+📸 Optional: Add a Screenshot
+You can add a demo GIF or screenshot like this:
 
+markdown
+Copy
+Edit
+![Demo](./demo.gif)
 📜 License
 This project is licensed under the MIT License.
+
+🙌 Acknowledgements
+Thanks to the NIT Warangal summer internship team for mentorship and guidance on secure file upload mechanisms.
+
+yaml
+Copy
+Edit
+
+---
+
+Let me know if you'd like to include badges (build status, license, etc.), a contributors section, or deployment steps (e.g., Vercel, Netlify, Render).
+
+
+
+
+
+
+
+
